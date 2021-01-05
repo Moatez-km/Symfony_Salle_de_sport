@@ -1,0 +1,204 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('theme/css/app.css') }}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('theme/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('theme/fonts/font-awesome/css/font-awesome.css') }}">
+
+    <style>
+        .input2{
+            width: 30%;
+            background-color: rgba(0,0,0,0.1);
+            border : 1px solid #00b09b;
+            border-radius: 2px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            padding-left:20px;
+            caret-color: #fff;
+            font-size: 18px
+        }
+        textarea:focus, input2:focus{
+            outline: none;
+
+        }
+        textarea, input2{
+            color : #fff
+
+        }
+        .lab{
+            color:white;
+        }
+        .err{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div class="slider" id="accueil">
+    <div class="topnav" id="myTopnav">
+        <a href="#news" class="gradient-text logo">MY GYM</a>
+        <span class="navright">
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="{{ path("salle_homepage") }}">Accueil</a>
+              <a href="{{ path("salle_homepage") }}">Galery</a>
+             <a href="{{ path("salle_homepage") }}">Team</a>
+             <a href="{{ path("salle_homepage") }}">Planning</a>
+                <a href="{{ path("salle_homepage") }}">Offres</a>
+                <a href="{{ path("salle_homepage") }}">Contact</a>
+
+
+            </span>
+    </div>
+    <br>
+    <br>
+    <div class="center">
+        <div class="padding-large " >
+            <p class="h2 gradient-text">Login</p>
+        </div></div>
+    <div class=" center blackdiv  light">
+        <div class="padding-large">
+
+
+        {% if error %}
+    <div class="err">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path('salle_connexion_user') }}" method="post">
+    <div>
+        <input placeholder="Adresse email ..." required name="_username" value="{{lastUsername}}" type="text" class="input2">
+    </div>
+    <br>
+    <div>
+        <input placeholder="Mot de passe ..." required name="_password" type="password" class="input2">
+    </div>
+    <div>
+        <button type="submit" class="btn-secondairy ">Connexion</button>
+    </div>
+
+</form>
+
+            <div class="row blackdiv light left">
+                <div class="padding-large ">
+                    <div class="col-1">
+
+                    </div>
+                    <div class="col-3 padding line">
+                        <p class="h3 gradient-text padding-bottom-small">Navigations </p>
+                        <a href="#accueil" class="links h5">ACCUEIL</a> <br />
+                        <a href="#galery" class="links h5">GALERY</a> <br />
+                        <a href="#team" class="links h5">TEAM</a> <br />
+                        <a href="#planning" class="links h5">PLANING</a> <br />
+                        <a href="#offres" class="links h5">OFFERS</a> <br />
+                        <a href="#contact" class="links h5">CONTACT</a> <br />
+                    </div>
+                    <div class="col-3 padding line">
+                        <p class="h3 gradient-text padding-bottom-small">INFO </p>
+                        <p class="h5"><span class="secondary-color "> <i class="fa fa-map-marker"></i> Adresse :</span> <br /> 8 Rue Errihane, Ariana</p>
+                        <p class="h5"><span class="secondary-color "> <i class="fa fa-phone"></i> Phone :</span>  <br /> +216 24 065 231</p>
+                        <p class="h5"><span class="secondary-color "> <i class="fa fa-calendar"></i> Work Time : </span> <br /> 08:00 - 20:00 </p>
+                    </div>
+                    <div class="col-4 padding line center">
+                        <p class="h3 gradient-text padding-bottom-small">MY GYM</p>
+                        <p class="h5 line padding-bottom-small"> Exercitationem totam enim culpa quia deleniti voluptates temporibus corporis  veniam cum est dicta aut! Nulla, officia.</p>
+                        <a class="links-facebook padding-left-right"><i class="fa fa-facebook-official fa-2x"></i></a>
+                        <a class="links-youtube  padding-left-right"><i class="fa fa-youtube-play fa-2x"></i></a>
+                        <a class="links-instagram  padding-left-right "><i class="fa fa-instagram fa-2x"></i></a>
+                    </div>
+                    <div class="col-1">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 padding-small footer light center">
+                <p>Copyright © 2020 All rights reserved | Made with love <i class="fa fa-heartbeat red" ></i> </p>
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="" id="modal-img"></div>
+                </div>
+            </div>
+
+
+            <a class="totop" href="#accueil">
+                <i class="fa fa-arrow-up links"></i>
+            </a>
+</body>
+
+<script type="text/javascript" src="{{ asset('theme/js/jquery.js')}}"></script>
+<script type="text/javascript" src="{{ asset('theme/js/bootstrap.min.js')}}"></script>
+<script src="./js/app.js">
+
+</script>
+
+<script>
+
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    $(document).ready(function() {
+        var slideHeight = $(window).height() ;
+        $('.background').css('height',slideHeight/1.7);
+
+        $("div#galery div").click(function() {
+            var myClass = $(this).attr("class");
+
+        });
+
+        var i = 1
+        setInterval(function(){
+            $("#fadeImg").fadeOut(1500,function(){
+                var atr = ["ba1","ba2","ba3","ba4"]
+
+                $("#fadeImg").fadeIn(1000);
+                if( i == 4 ){
+                    $("#fading-slide").removeClass(atr[i])
+                    i = 1;
+                    $("#fading-slide").addClass(atr[i])
+
+                }else{
+                    $("#fading-slide").removeClass(atr[i])
+                    i++;
+                    $("#fading-slide").addClass(atr[i])
+                }
+            });
+
+
+        }, 5000);
+
+
+    });
+
+    function showimage(id){
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        var atr = "back"+id
+        $("#modal-img").removeClass()
+        $("#modal-img").addClass("height")
+        $("#modal-img").addClass(atr)
+        modal.style.display = "block";
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        console.log(id)
+    }
+
+</script>
+</html>

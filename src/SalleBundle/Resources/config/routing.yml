@@ -1,0 +1,50 @@
+salle_homepage:
+    path:     /
+    defaults: { _controller: SalleBundle:Default:index }
+salle_affichage_abonner:
+      path:     /listAbonner
+      defaults: { _controller: SalleBundle:Abonner:list }
+
+salle_supprimer_abonner:
+      path:     /deleteAbonner/{id}
+      defaults: { _controller: SalleBundle:Abonner:delete }
+
+salle_ajout_abonner:
+      path:     /addAbonner
+      defaults: { _controller: SalleBundle:Abonner:add }
+salle_modifier_abonner:
+      path:     /updateAbonner/{id}
+      defaults: { _controller: SalleBundle:Abonner:update }
+
+salle_connexion_user:
+    path: /login
+    defaults: { _controller: SalleBundle:Security:Login }
+
+salle_inscription_user:
+    path: /registration
+    defaults: { _controller: SalleBundle:Security:Registration }
+
+salle_deconnexion_user:
+    path: /logout
+    defaults: { _controller: SalleBundle:Security:Logout }
+salle_affichage_user:
+      path:     /listUser
+      defaults: { _controller: SalleBundle:User:list }
+
+salle_supprimer_user:
+      path:     /deleteUser/{id}
+      defaults: { _controller: SalleBundle:User:delete }
+
+salle_affichage_activiter:
+      path:     /listActiviter
+      defaults: { _controller: SalleBundle:Activiter:list }
+salle_ajout_activiter:
+      path:     /addctiviter
+      defaults: { _controller: SalleBundle:Activiter:add }
+
+salle_supprimer_activiter:
+      path:     /deleteActiviter/{id}
+      defaults: { _controller: SalleBundle:Activiter:delete }
+salle_modifier_activiter:
+      path:     /updateActiviter/{id}
+      defaults: { _controller: SalleBundle:Activiter:update }
